@@ -7,16 +7,16 @@ import Clarity from '@microsoft/clarity'
 function App() {
   const [count, setCount] = useState(0)
 
-    useEffect(() => {
-      Clarity.consentv2({
-        ad_storage: "granted",
-        analytics_storage: "granted"
-      })
+  useEffect(() => {
+    Clarity.consentv2({
+      ad_storage: "granted",
+      analytics_storage: "granted"
+    })
 
-      Clarity.identify("user-12345")
-      Clarity.setTag("membership", "free")
-      Clarity.setTag("page-type", "homepage")
-    }, [])
+    Clarity.identify("user-12345")
+    Clarity.setTag("membership", "free")
+    Clarity.setTag("page-type", "homepage")
+  }, [])
 
   return (
     <>
@@ -33,7 +33,7 @@ function App() {
         <button onClick={() => {
           setCount((count) => count + 1)
           Clarity.event("counter-clicked")
-          Clarity.upgrade("important-action")
+          Clarity.upgrade("counter-used")
         }}>
           count is {count}
         </button>
