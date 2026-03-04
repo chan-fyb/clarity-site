@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Clarity from '@microsoft/clarity'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    Clarity.identify("user-12345")
+  }, [])
 
   return (
     <>
